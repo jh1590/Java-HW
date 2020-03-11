@@ -30,7 +30,7 @@ public class Assignment_14_1 {
 		String a = map.get("a");
 		String b = map.get("b");
 
-		if (a == b) {
+		if (a.equals(b)) {
 			map.remove("a");
 			map.remove("b");
 		}
