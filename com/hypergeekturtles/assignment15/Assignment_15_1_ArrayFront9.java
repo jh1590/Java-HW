@@ -18,14 +18,16 @@ public class Assignment_15_1_ArrayFront9 {
 	}
 
 	public static boolean arrayFront9(int[] nums) {
-		
+
 		int length = nums.length;
 		boolean is9 = false;
-		
-		for (int i = 0;i < length; i++) {
+
+		for (int i = 0; i < length; i++) {
 			if (nums[i] == 9) {
 				if (i < 4) {
 					is9 = true;
+					break;
+				} else {
 					break;
 				}
 			}

@@ -20,20 +20,15 @@ public class Assignment_15_3_EndUp {
 	public static String endUp(String str) {
 		
 		int length = str.length();
+		String answer = "";
 		if (length > 3) {
-			char last = str.charAt(length - 1);
-			String lastletter = String.valueOf(last);
-			str = str.replace(last, lastletter.toUpperCase().charAt(0));
-			char seclast = str.charAt(length - 2);
-			String seclastletter = String.valueOf(seclast);
-			str = str.replace(seclast, seclastletter.toUpperCase().charAt(0));
-			char trilast = str.charAt(length - 3);
-			String trilastletter = String.valueOf(trilast);
-			str = str.replace(trilast, trilastletter.toUpperCase().charAt(0));
+			String firstletters = str.substring(0, length - 3);
+			String lastletters = str.substring(length - 3, length);
+			answer = firstletters + lastletters.toUpperCase();
 		}
 		else {
-			 str = str.toUpperCase();
+			answer = str.toUpperCase();
 		}
-		return str;
+		return answer;
 	}
 }
