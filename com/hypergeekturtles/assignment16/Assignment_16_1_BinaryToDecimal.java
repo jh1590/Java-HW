@@ -20,18 +20,26 @@ public class Assignment_16_1_BinaryToDecimal {
 	public static String binaryToDecimal(String binary) {
 
 		int length = binary.length();
-		int counter = 0;
+		int sum = 0;
+		int base2 = 2;
+		
 		for (int i = 0; i < length; i++) {
 			int value = Character.getNumericValue(binary.charAt(length - i - 1));
 			if (value == 1) {
-				int z = 2;
-				for (int x = 0; x < i; x++) {
-					z = z * 2;
-				}
-
-				counter = counter + z / 2;
+				int answer = exponent(i, base2);
+				sum = sum + answer;
 			}
 		}
-		return String.valueOf(counter);
+		return String.valueOf(sum);
 	}
+	
+	public static int exponent(int power, int base) {
+		
+		int z = 1;
+		for (int x = 0; x < power; x++) {
+			z = z * base;
+		}
+		return z;
+	}
+	
 }
