@@ -21,13 +21,11 @@ public class Assignment_16_1_BinaryToDecimal {
 
 		int length = binary.length();
 		int sum = 0;
-		int base2 = 2;
 		
 		for (int i = 0; i < length; i++) {
 			int value = Character.getNumericValue(binary.charAt(length - i - 1));
 			if (value == 1) {
-				int answer = exponent(i, base2);
-				sum = sum + answer;
+				sum = sum + exponent(i, 2);
 			}
 		}
 		return String.valueOf(sum);
