@@ -26,27 +26,30 @@ public class Assignment_19_1 {
 			if (numbers[guess] == targetValue) {
 				return guess;
 			} else if (targetValue > numbers[guess]) {
-				ArrayList<Integer> Values = new ArrayList<Integer>();
-				for (int i = guess + 1; i <= max; i++) {
-					Values.add(numbers[i]);
-				}
-
-				int[] x = new int[Values.size()];
+				int[] x = new int[max - guess];
 				for (int i = 0; i < x.length; i++) {
-					x[i] = Values.get(i);
+					x[i] = numbers[guess + 1 + i];
 				}
-				return guess + 1 + binarySearchInt(x, targetValue);
+				int answer = binarySearchInt(x, targetValue);
+				if (answer == -1) {
+					return -1;
+				} else {
+					return guess + 1 + answer;
+				}
+			} else if (targetValue < numbers[guess]) {
+
+				int[] x = new int[guess - min];
+				for (int i = 0; i < x.length; i++) {
+					x[i] = numbers[i];
+				}
+				int answer2 = binarySearchInt(x, targetValue);
+				if (answer2 == -1) {
+					return -1;
+				} else {
+					return answer2;
+				}
 			} else {
-				ArrayList<Integer> Values = new ArrayList<Integer>();
-				for (int i = 0; i <= guess; i++) {
-					Values.add(numbers[i]);
-				}
-
-				int[] x = new int[Values.size()];
-				for (int i = 0; i < x.length; i++) {
-					x[i] = Values.get(i);
-				}
-				return binarySearchInt(x, targetValue);
+				return -1;
 			}
 		}
 	}

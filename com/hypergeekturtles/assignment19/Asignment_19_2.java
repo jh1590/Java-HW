@@ -32,14 +32,10 @@ public class Asignment_19_2 {
 			if (dictionary[guess].equals(word)) {
 				return guess;
 			} else if ((dictionary[guess].compareTo(word)) < 0) {
-				ArrayList<String> Values = new ArrayList<String>();
-				for (int i = guess + 1; i <= max; i++) {
-					Values.add(dictionary[i]);
-				}
 
-				String[] x = new String[Values.size()];
+				String[] x = new String[max - guess];
 				for (int i = 0; i < x.length; i++) {
-					x[i] = Values.get(i);
+					x[i] = dictionary[guess + 1 + i];
 				}
 				int answer = binarySearchString(x, word);
 				if (answer == -1) {
@@ -48,16 +44,18 @@ public class Asignment_19_2 {
 					return guess + 1 + answer;
 				}
 			} else if ((dictionary[guess].compareTo(word)) > 0) {
-				ArrayList<String> Values = new ArrayList<String>();
-				for (int i = 0; i < guess; i++) {
-					Values.add(dictionary[i]);
-				}
 
-				String[] x = new String[Values.size()];
+				String[] x = new String[guess - min];
 				for (int i = 0; i < x.length; i++) {
-					x[i] = Values.get(i);
+					x[i] = dictionary[i];
 				}
-				return binarySearchString(x, word);
+				int answer2 = binarySearchString(x, word);
+				if (answer2 == -1) {
+					return -1;
+				} else {
+					return answer2;
+				}
+				
 			} else {
 				return -1;
 			}
